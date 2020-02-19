@@ -10,4 +10,9 @@ class Museum
     @exhibits << exhibit
   end
 
+  def recommend_exhibits(patron)
+    if
+  end
+
+
 end
