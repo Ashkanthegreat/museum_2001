@@ -11,8 +11,13 @@ class Museum
   end
 
   def recommend_exhibits(patron)
-    if
+    exhibits.find_all do |exhibit|
+      patron.interests.include?(exhibit.name)
+    end
   end
+
+  def add_patrons
+    
 
 
 end
