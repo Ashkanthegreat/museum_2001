@@ -29,5 +29,24 @@ class Museum
     end
   end
 
+  def ticket_lottery_contestants(exhibit)
+    @patrons.select { |patron| patron.interests.include?(exhibit.name) && patron.spending_money < exhibit.cost }
+  end
+
+  def draw_lottery_winner(exhibit)
+    if ticket_lottery_contestants(exhibit).empty?
+      nil
+    else
+      ticket_lottery_contestants(exhibit).sample.name
+    end
+
+  end
+
+  def announce_lottery_winner(exhibit)
+    return "No winners for this lottery" if draw_lottery_winner(exhibit) == nil
+    return "#{draw_lottery_winner(exhibit)} has won the Dead Sea Scrolls exhibit lottery"
+
+  end
+
 
 end
